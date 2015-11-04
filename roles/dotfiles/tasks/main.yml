@@ -1,0 +1,5 @@
+---
+  - name: Pull down the .dotfiles fork from GitHub
+    git:
+      repo=https://github.com/richardrowe/dotfiles.git
+      dest={{ home }}/.dotfiles

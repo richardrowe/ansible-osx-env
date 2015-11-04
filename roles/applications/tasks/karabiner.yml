@@ -1,0 +1,35 @@
+---
+# task file to install Karabiner for applications
+
+  - name: Install Karabiner
+    homebrew_cask:
+      name={{ item }}
+      state=present
+    with_items:
+      - karabiner
+    environment:
+      HOMEBREW_CASK_OPTS: --appdir=/Applications
+
+  - name: Ensure Karabiner support directory exists
+    file:
+      path: "{{ karabiner.config_dir }}"
+      state: directory
+
+  - name: Install private.xml
+    file:
+      path="{{ karabiner.config_dir }}/private.xml"
+      src="{{ karabiner.source_private_xml }}"
+      state=link
+
+  - name: Karabiner key remap
+    command: "{{ karabiner.command }} enable {{ item.name }}"
+    with_items: karabiner.remap
+
+  - name: Configure Karabiner
+    command: "{{ karabiner.command }} set {{ item.name }} {{ item.value }}"
+    with_items: karabiner.config
+
+  - name: Reload private.xml
+    command: "{{ karabiner.command }} reloadxml"
+
+

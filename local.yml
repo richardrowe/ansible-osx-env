@@ -1,0 +1,17 @@
+---
+
+- name: Provision an OS X system
+  hosts: all
+  sudo: yes
+  sudo_user: "{{ user }}"
+  remote_user: "{{ user }}"
+  vars:
+    - connection: local
+  vars_files:
+    - env_vars/main.yml
+
+  roles:
+    - system
+    - packages
+    - applications
+    - dotfiles

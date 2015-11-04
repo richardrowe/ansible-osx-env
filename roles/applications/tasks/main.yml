@@ -1,0 +1,51 @@
+---
+# tasks file for applications
+  - name: Update Homebrew
+    homebrew:
+      update_homebrew=yes
+
+  - name: Install Brew Caskroom
+    homebrew:
+      name=cask
+      state=present
+
+  - name: Add the Casks
+    homebrew_cask:
+      name={{ item }}
+      state={{ item.state|default('present') }}
+    with_items:
+      - alfred
+      - amethyst 
+      - appcleaner
+      - caffeine
+      - cloak
+      - dash
+      - dropbox
+      - firefox
+      - flux
+      - forklift
+      - google-chrome
+      - gpgtools
+      - handbrake
+      - iterm2
+      - java
+      - kaleidoscope
+      - little-snitch
+      - macdown
+      - mactex
+      - phpstorm
+      - seil
+      - shortcat
+      - slack
+      - torbrowser
+      - transmit
+      - transmission
+      - tunnelblick
+      - virtualbox
+      - vlc
+      - wireshark
+    environment:
+      HOMEBREW_CASK_OPTS: --appdir=/Applications
+
+  - include: seil.yml 
+  - include: karabiner.yml

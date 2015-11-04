@@ -1,0 +1,4 @@
+---
+user: richard
+group: staff
+home: "/Users/{{ user }}"

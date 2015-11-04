@@ -1,0 +1,17 @@
+---
+
+  - name: Install CLI tools for AWS
+    homebrew:
+      name="{{ item }}"
+      state=present
+      update_homebrew=yes
+    with_items:
+      - aws-as
+      - aws-cfn-tools
+      - aws-cloudsearch
+      - aws-cloudsearch
+      - aws-elasticache
+      - aws-elasticbeanstalk
+      - aws-mon
+      - aws-sns-cli
+      - awscli

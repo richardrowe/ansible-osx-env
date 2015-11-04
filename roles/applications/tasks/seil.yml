@@ -1,0 +1,5 @@
+---
+
+- name: Configuring Seil
+  command: "{{ seil.command }} set {{ item.name }} {{ item.value }}"
+  with_items: seil.config

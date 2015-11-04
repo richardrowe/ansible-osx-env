@@ -1,0 +1,165 @@
+---
+
+# Disable creation of .DS_Store files on network drives
+- name: do not create .DS_Store on network shares
+  osx_defaults:
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    state: present
+    value: "true"
+    type: boolean
+
+# Public: Disable the App Quarantine feature so you can run apps you download
+- name: disable the downloaded app quanrantine
+  osx_defaults:
+    domain: com.apple.LaunchServices
+    key: LSQuarantine
+    state: present
+    value: "false"
+    type: boolean
+
+# Public: Disables keyboard press-and-hold for accented character entry.
+- name: disable press-and-hold for accented characters
+  osx_defaults:
+    domain: NSGlobalDomain
+    state: present
+    key: ApplePressAndHoldEnabled
+    value: "false"
+    type: boolean
+
+# Enables keyboard access for dialog controls
+- name: enable ull keyboard access for all controls
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleKeyboardUIMode
+    state: present
+    value: 3
+    type: int
+
+# Disable remote control infrared receiver. Requires re-login
+- name: disable remote control infrared receiver
+  osx_defaults:
+    domain: /Library/Preferences/com.apple.driver.AppleIRController'
+    state: present
+    key: DeviceEnabled
+    value: "false"
+    type: boolean
+
+# Enables Tap to click
+- name: tap-to-click bluetooth
+  osx_defaults:
+    domain: com.apple.driver.AppleBluetoothMultitouch.trackpad
+    key: Clicking
+    state: present
+    value: 1
+    type: int
+
+- name: tap-to-click mouse
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    state: present
+    value: 1
+    type: int
+
+- name: tap-to-click current host
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.tapBehavior
+    state: present
+    value: 1
+    type: int
+
+# Causes the dock to hide itself when you're not pointing at it
+- name: automatically hide the dock
+  osx_defaults:
+    domain: com.apple.dock
+    state: present
+    key: autohide
+    value: "true"
+    type: boolean
+  notify: kill dock
+
+# Modify 'natural' mouse scrolling (enable or disable). Requires re-login
+- name: disable natural mouse scrolling
+  osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.swipescrolldirection
+    state: present
+    value: "true"
+    type: boolean
+ 
+# Remaps capslock to control on attached keyboards
+- name: get id for built-in keyboard
+  shell: >
+    ioreg -n IOHIDKeyboard -r | 
+    grep -E 'VendorID"|ProductID' | 
+    awk '{print $4}' |
+    paste -s -d'-\n' -
+  register: keyboard_id
+
+
+- name: "Read builtin keyboard map for caps lock setup"
+  shell: >
+    defaults -currentHost read -g
+    "com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}-0" |
+    perl -pe 's/(\n|\s+|{|}|\(|\)|\=|\;)//g' |
+    perl -pe 's/HIDKeyboardModifierMapping//g'
+  register: current_layout
+
+#- name: remap capslock to control on all keyboards
+#  command: defaults -currentHost write -g com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}-0 -array-add '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'   
+
+- name: "Ensure builtin keyboard maps caps lock to control"
+  shell: >
+    defaults -currentHost write -g
+    "com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}-0"
+    -array "{HIDKeyboardModifierMappingDst=2;HIDKeyboardModifierMappingSrc=0;}"
+  when: current_layout.stdout != "Dst2Src0"
+
+# This option is in System Preferences > Users & Groups > Guest User
+- name: disable guest account
+  osx_defaults:
+    domain: /Library/Preferences/com.apple.loginwindow
+    key: GuestEnabled
+    state: present
+    value: "false"
+    type: boolean
+  become: true
+
+# This option is in System Preferences > Security & Privacy > General > Set Lock Message
+- name: set a screen lock message
+  osx_defaults:
+    domain: /Library/Preferences/com.apple.loginwindow
+    key: LoginwindowText
+    state: present
+    value: "If this computer is found contact {{ user_email }}"
+  become: true
+
+# This option is in System Preferences > Security & Privacy > General > Require Password
+- name: ask for password
+  osx_defaults:
+    domain: com.apple.screensaver
+    key: askForPassword
+    state: present
+    value: 1
+    type: int
+
+# This option is in System Preferences > Security & Privacy > General > Require Password
+- name: ask for password immediately
+  osx_defaults:
+    domain: com.apple.screensaver
+    key: askForPasswordDelay
+    state: present
+    value: 0
+    type: float
+
+# This option is in Finder -> |||
+- name: multi-list view default
+  osx_defaults:
+    domain: com.apple.Finder
+    key: FXPreferredViewStyle
+    state: present
+    value: clmv
+    type: string
+
