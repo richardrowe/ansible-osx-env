@@ -9,6 +9,12 @@ ruby_gems:
   - tmuxinator
   - lunchy
 
+homebrew_taps:
+  - ethereum/ethereum
+  - homebrew/completions
+  - homebrew/binary
+  - caskroom/cask
+
 homebrew_packages:
   - autoconf
   - automake

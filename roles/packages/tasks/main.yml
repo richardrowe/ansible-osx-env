@@ -8,11 +8,7 @@
     homebrew_tap:
       tap="{{ item }}"
       state=present
-    with_items:
-      - ethereum/ethereum
-      - homebrew/completions
-      - homebrew/binary
-      - caskroom/cask
+    with_items: homebrew_taps
 
   - name: Install some brews
     homebrew:
