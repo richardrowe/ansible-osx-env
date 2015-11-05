@@ -1,0 +1,8 @@
+---
+
+osx_login_shell: /usr/local/bin/fish
+
+ruby_gems:
+  - puppet-lint
+  - tmuxinator
+  - lunchy
