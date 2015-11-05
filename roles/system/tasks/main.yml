@@ -163,3 +163,11 @@
     value: clmv
     type: string
 
+# Always show hidden files in Finder
+- name: always show hidden files in finder
+  osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    state: present
+    value: "true"
+    type: boolean
