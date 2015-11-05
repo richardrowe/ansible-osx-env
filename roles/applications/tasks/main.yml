@@ -13,37 +13,7 @@
     homebrew_cask:
       name={{ item }}
       state={{ item.state|default('present') }}
-    with_items:
-      - alfred
-      - amethyst 
-      - appcleaner
-      - caffeine
-      - cloak
-      - dash
-      - dropbox
-      - firefox
-      - flux
-      - forklift
-      - google-chrome
-      - gpgtools
-      - handbrake
-      - iterm2
-      - java
-      - kaleidoscope
-      - little-snitch
-      - macdown
-      - mactex
-      - phpstorm
-      - seil
-      - shortcat
-      - slack
-      - torbrowser
-      - transmit
-      - transmission
-      - tunnelblick
-      - virtualbox
-      - vlc
-      - wireshark
+    with_items: homebrew_cask_packages
     environment:
       HOMEBREW_CASK_OPTS: --appdir=/Applications
 

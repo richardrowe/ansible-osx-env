@@ -13,16 +13,13 @@ karabiner:
   config:
     -
       name: repeat.wait
-      value: 33
+      value: 43
     -
       name: parameter.holdingkeytokey_wait
       value: 150
     -
       name: parameter.keyoverlaidmodifier_timeout
-      value: 100
-    -
-      name: repeat.initial_wait
-      value: 200
+      value: 300
 
   remap: # See also 'karabiner'
     -
@@ -41,3 +38,36 @@ karabiner:
       name: 'remap.shiftparens'
 
 caskroom_dir: /opt/homebrew-cask/Caskroom
+
+
+homebrew_cask_packages:
+  - alfred
+  - amethyst
+  - appcleaner
+  - caffeine
+  - cloak
+  - dash
+  - dropbox
+  - firefox
+  - flux
+  - forklift
+  - google-chrome
+  - gpgtools
+  - handbrake
+  - iterm2
+  - java
+  - kaleidoscope
+  - little-snitch
+  - macdown
+  - mactex
+  - phpstorm
+  - seil
+  - shortcat
+  - slack
+  - torbrowser
+  - transmit
+  - transmission
+  - tunnelblick
+  - virtualbox
+  - vlc
+  - wireshark

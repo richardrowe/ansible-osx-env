@@ -19,55 +19,7 @@
       name={{ item.name|default(item) }} 
       state={{ item.state|default('present') }}
       install_options={{ item.install_options|default() }}
-    with_items:
-      - autoconf
-      - automake
-      - autossh
-      - boot2docker
-      - coreutils
-      - curl
-      - ctags
-      - dnstracer
-      - editorconfig
-      - fzf 
-      - git
-      - git-lfs
-      - gnupg
-      - gnu-tar
-      - gpg
-      - go
-      - htop-osx
-      - hub
-      - libevent
-      - libtool
-      - libyaml
-      - lua
-      - makedepend
-      - { name: macvim, state: head, install_options: with-cscope,with-lua,override-system-vim }
-      - mtr
-      - ncdu
-      - nmap
-      - node
-      - npm
-      - openssl
-      - packer
-      - packer-completion
-      - pass 
-      - pcre
-      - pkg-config
-      - pow
-      - python
-      - readline
-      - sqlite
-      - ssh-copy-id
-      - sysdig
-      - terraform 
-      - tmux
-      - tmux-mem-cpu-load
-      - { name: 'reattach-to-user-namespace', install_options: 'wrap-pbcopy-and-pbpaste' } 
-      - todo-txt
-      - xz
-      - wireshark
+    with_items: homebrew_packages
 
   - include: fish.yml tags=shell,packages
   - include: aws.yml tags=aws,packages

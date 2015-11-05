@@ -2,7 +2,59 @@
 
 osx_login_shell: /usr/local/bin/fish
 
+rbenv_version: '2.2.3'
+
 ruby_gems:
   - puppet-lint
   - tmuxinator
   - lunchy
+
+homebrew_packages:
+  - autoconf
+  - automake
+  - autossh
+  - boot2docker
+  - coreutils
+  - curl
+  - ctags
+  - dnstracer
+  - editorconfig
+  - fzf
+  - git
+  - git-lfs
+  - gnupg
+  - gnu-tar
+  - gpg
+  - go
+  - htop-osx
+  - hub
+  - libevent
+  - libtool
+  - libyaml
+  - lua
+  - makedepend
+  - { name: macvim, state: head, install_options: with-cscope,with-lua,override-system-vim }
+  - mtr
+  - ncdu
+  - nmap
+  - node
+  - npm
+  - openssl
+  - packer
+  - packer-completion
+  - pass
+  - pcre
+  - pkg-config
+  - pow
+  - python
+  - readline
+  - sqlite
+  - ssh-copy-id
+  - sysdig
+  - terraform
+  - tmux
+  - tmux-mem-cpu-load
+  - { name: 'reattach-to-user-namespace', install_options: 'wrap-pbcopy-and-pbpaste' }
+  - todo-txt
+  - xz
+  - wireshark
