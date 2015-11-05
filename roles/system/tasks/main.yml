@@ -169,5 +169,5 @@
     domain: com.apple.finder
     key: AppleShowAllFiles
     state: present
-    value: "true"
-    type: boolean
+    value: "YES"
+    type: string
