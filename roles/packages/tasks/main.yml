@@ -75,4 +75,3 @@
 
   - include: fish.yml tags=shell
   - include: aws.yml tags=aws
-  - include: vagrant.yml tags=vagrant

@@ -47,5 +47,6 @@
     environment:
       HOMEBREW_CASK_OPTS: --appdir=/Applications
 
-  - include: seil.yml 
-  - include: karabiner.yml
+  - include: seil.yml tags=keyboard
+  - include: karabiner.yml tags=keyboard
+  - include: vagrant.yml tags=vagrant
