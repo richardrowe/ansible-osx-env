@@ -1,0 +1,27 @@
+---
+-
+  name: "Install rbenv & rbenv-gem-rehash"
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - rbenv
+    - rbenv-gem-rehash
+-
+  name: "Install ruby-build"
+  homebrew:
+    name: ruby-build
+    state: latest
+-
+  name: "Install ruby {{ rbenv_version }}"
+  shell: "/usr/local/bin/rbenv install -s {{ rbenv_version }}"
+  register: install_result
+  changed_when: install_result.stderr
+-
+  name: "Install ruby gems"
+  gem:
+    executable: "~/.rbenv/versions/{{ rbenv_version }}/bin/gem"
+    name: "{{ item }}"
+    state: latest
+    user_install: false
+  with_items: ruby_gems

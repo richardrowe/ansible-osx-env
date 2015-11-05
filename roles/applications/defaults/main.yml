@@ -1,5 +1,5 @@
 ---
-# defaults file for applications
+# vars file for applications
 
 seil:
   command: '/Applications/Seil.app/Contents/Library/bin/seil'
