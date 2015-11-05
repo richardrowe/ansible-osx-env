@@ -107,9 +107,6 @@
     perl -pe 's/HIDKeyboardModifierMapping//g'
   register: current_layout
 
-#- name: remap capslock to control on all keyboards
-#  command: defaults -currentHost write -g com.apple.keyboard.modifiermapping.{{ keyboard_id.stdout }}-0 -array-add '<dict><key>HIDKeyboardModifierMappingDst</key><integer>2</integer><key>HIDKeyboardModifierMappingSrc</key><integer>0</integer></dict>'   
-
 - name: "Ensure builtin keyboard maps caps lock to control"
   shell: >
     defaults -currentHost write -g
