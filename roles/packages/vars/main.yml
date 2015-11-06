@@ -63,4 +63,5 @@ homebrew_packages:
   - { name: 'reattach-to-user-namespace', install_options: 'wrap-pbcopy-and-pbpaste' }
   - todo-txt
   - xz
+  - weechat
   - wireshark
