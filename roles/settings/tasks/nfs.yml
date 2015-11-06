@@ -1,0 +1,16 @@
+---
+
+- name: 'Updating /etc/nfs.conf'
+  lineinfile: dest=/etc/nfs.conf line='nfs.server.nfsd_threads=16' state=present
+  become: yes
+  notify:
+    - restart nfsd
+
+- name: 'Apply sysctl configuration'
+  sysctl:
+    name={{ item.name }}
+    value={{ item.value }}
+    state=present
+    reload=yes
+  with_items: sysctl_config
+  become: yes
