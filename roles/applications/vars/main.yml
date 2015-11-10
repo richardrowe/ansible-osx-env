@@ -60,6 +60,7 @@ homebrew_cask_packages:
   - little-snitch
   - macdown
   - mactex
+  - owasp-zap
   - phpstorm
   - seil
   - shortcat
