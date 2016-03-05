@@ -1,5 +1,13 @@
 ---
 
+# Hides desktop items
+- name: hide desktop items
+  osx_defaults:
+    domain: com.apple.Finder
+    state: present
+    key: CreateDesktop
+    value: 0
+
 # Disable creation of .DS_Store files on network drives
 - name: do not create .DS_Store on network shares
   osx_defaults:
