@@ -9,15 +9,6 @@
     value: "true"
     type: boolean
 
-# Public: Disable the App Quarantine feature so you can run apps you download
-- name: disable the downloaded app quanrantine
-  osx_defaults:
-    domain: com.apple.LaunchServices
-    key: LSQuarantine
-    state: present
-    value: "false"
-    type: boolean
-
 # Public: Disables keyboard press-and-hold for accented character entry.
 - name: disable press-and-hold for accented characters
   osx_defaults:
@@ -28,7 +19,7 @@
     type: boolean
 
 # Enables keyboard access for dialog controls
-- name: enable ull keyboard access for all controls
+- name: enable full keyboard access for all controls
   osx_defaults:
     domain: NSGlobalDomain
     key: AppleKeyboardUIMode
