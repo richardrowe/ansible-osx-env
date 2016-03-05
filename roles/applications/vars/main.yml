@@ -39,7 +39,6 @@ karabiner:
 
 caskroom_dir: /opt/homebrew-cask/Caskroom
 
-
 homebrew_cask_packages:
   - 1password
   - alfred

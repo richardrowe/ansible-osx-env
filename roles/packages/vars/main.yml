@@ -61,7 +61,6 @@ homebrew_packages:
   - tmux
   - tmux-mem-cpu-load
   - { name: 'reattach-to-user-namespace', install_options: 'wrap-pbcopy-and-pbpaste' }
-  - todo-txt
   - xz
   - weechat
   - wireshark
