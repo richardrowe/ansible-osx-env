@@ -39,7 +39,7 @@ homebrew_packages:
   - libyaml
   - lua
   - makedepend
-  - { name: macvim, state: head, install_options: with-cscope,with-lua,override-system-vim }
+  - neovim/neovim/neovim
   - mtr
   - ncdu
   - nmap
