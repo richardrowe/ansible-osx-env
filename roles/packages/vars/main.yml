@@ -19,7 +19,6 @@ homebrew_packages:
   - autoconf
   - automake
   - autossh
-  - boot2docker
   - coreutils
   - curl
   - ctags
