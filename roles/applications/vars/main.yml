@@ -69,5 +69,6 @@ homebrew_cask_packages:
   - transmission
   - tunnelblick
   - virtualbox
+  - virtualbox-extension-pack
   - vlc
   - wireshark

@@ -1,0 +1,84 @@
+---
+# https://www.docker.com/
+- name: Install Docker and extras
+  homebrew:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - docker
+    - docker-machine
+    - docker-compose
+
+- name: Create resolver directory
+  file:
+    path: /etc/resolver
+    state: directory
+    mode: 0755
+  become: yes
+  become_method: sudo
+
+# CAUTION: `src` must be absolute path when `state` is `link`
+- name: Link .dev resolver file
+  file:
+    src: "{{ REPO_ROOT }}/playbooks/roles/docker/files/resolver_dev.conf"
+    dest: /etc/resolver/dev
+    state: link
+    force: yes
+  become: yes
+  become_method: sudo
+
+# assign the result of this task to a variable named `exports`
+# the variable can be used in another task
+- name: Add NFS share to /etc/exports
+  blockinfile:
+    dest: /etc/exports
+    create: yes
+    marker: "# HAL 9000"
+    content: "/Users 192.168.99.100 -alldirs -mapall=501:20"
+  become: yes
+  become_method: sudo
+  register: nfs_exports
+
+- name: Restart nfsd
+  command: nfsd restart
+  become: yes
+  become_method: sudo
+  when: nfs_exports.changed
+
+- name: Download docker-machine-nfs
+  get_url:
+    url: https://raw.githubusercontent.com/adlogix/docker-machine-nfs/master/docker-machine-nfs.sh
+    dest: /usr/local/bin/docker-machine-nfs
+    mode: 0755
+
+- name: Enable Docker Machine environment in .zshrc
+  lineinfile:
+    dest: "{{ ansible_env.HOME }}/.zshrc"
+    line: "{{ item }}"
+    create: yes
+  with_items:
+    - source {{ REPO_ROOT }}/playbooks/roles/docker/files/docker_machine_profile
+  when: ansible_env.SHELL == "/bin/zsh"
+
+- name: Create the Docker Machine VM
+  command: "{{ REPO_ROOT }}/bin/hal create"
+
+# https://github.com/nlf/dlite
+- name: Install dlite
+  homebrew:
+    name: "{{ item }}"
+    state: present
+  with_items:
+    - dlite
+
+- name: stat dlite directory
+  stat:
+    path: "{{ ansible_env.HOME }}/.dlite"
+  register: dlite_dir
+
+# - name: Setup dlite
+#   shell: "{{ item }}"
+#   with_items:
+#     - sudo dlite install --disk=20 --memory=4
+#     - dlite start
+#   when: not dlite_dir.stat.exists
