@@ -45,8 +45,6 @@ homebrew_packages:
   - node
   - npm
   - openssl
-  - packer
-  - packer-completion
   - pass
   - pcre
   - pkg-config
