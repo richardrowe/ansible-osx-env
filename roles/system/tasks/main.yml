@@ -170,3 +170,13 @@
     value: "true"
     type: boolean
   become: true
+
+# Disable Captive Portal assistant utility when connectivity can't be established on a new network
+- name: disable Captive Portal assistant utility when connectivity can't be established on a new network
+  osx_defaults:
+    domain: com.apple.captive.control
+    key: Active
+    state: present
+    value: "false"
+    type: boolean
+  become: true
