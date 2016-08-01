@@ -56,7 +56,6 @@ homebrew_cask_packages:
   - handbrake
   - iterm2
   - java
-  - kaleidoscope
   - little-snitch
   - macdown
   - mactex
