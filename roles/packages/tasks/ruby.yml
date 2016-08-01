@@ -1,12 +1,11 @@
 ---
 -
-  name: "Install rbenv & rbenv-gem-rehash"
+  name: "Install rbenv"
   homebrew:
     name: "{{ item }}"
     state: latest
   with_items:
     - rbenv
-    - rbenv-gem-rehash
 -
   name: "Install ruby-build"
   homebrew:

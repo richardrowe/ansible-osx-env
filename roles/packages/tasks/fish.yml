@@ -14,7 +14,7 @@
   failed_when: osx_login_shell_exists_in_etc_shells.rc not in [0, 1]
 
 - lineinfile: dest=/etc/shells line={{ osx_login_shell }} state=present owner=root group=wheel mode=0644
-  sudo: yes
+  become: yes
   when: osx_login_shell_exists_in_etc_shells.rc == 1
 
 - shell: dscl . read ~ UserShell | awk '{print $2}'

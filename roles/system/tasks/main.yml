@@ -7,6 +7,7 @@
     state: present
     key: CreateDesktop
     value: 0
+    type: int
 
 # Disable creation of .DS_Store files on network drives
 - name: do not create .DS_Store on network shares
@@ -130,6 +131,7 @@
     key: LoginwindowText
     state: present
     value: "If this computer is found contact {{ user_email }}"
+    type: string
   become: true
 
 # This option is in System Preferences > Security & Privacy > General > Require Password
@@ -151,13 +153,13 @@
     type: float
 
 # This option is in Finder -> |||
-- name: multi-list view default
-  osx_defaults:
-    domain: com.apple.Finder
-    key: FXPreferredViewStyle
-    state: present
-    value: clmv
-    type: string
+#- name: multi-list view default
+#  osx_defaults:
+#    domain: com.apple.Finder
+#    key: FXPreferredViewStyle
+#    state: present
+#    value: "clmv"
+#    type: string
 
 # Always show hidden files in Finder
 - name: always show hidden files in finder
@@ -165,5 +167,6 @@
     domain: com.apple.finder
     key: AppleShowAllFiles
     state: present
-    value: "YES"
-    type: string
+    value: "true"
+    type: boolean
+  become: true

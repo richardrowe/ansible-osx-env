@@ -3,6 +3,7 @@
   - name: Update Homebrew
     homebrew:
       update_homebrew=yes
+    become: false
 
   - name: Install Brew Caskroom
     homebrew:

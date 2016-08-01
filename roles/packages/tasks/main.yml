@@ -3,19 +3,21 @@
   - name: Update Homebrew
     homebrew:
       update_homebrew=yes
+    become: false
 
   - name: Tap some kegs
     homebrew_tap:
       tap="{{ item }}"
       state=present
-    with_items: homebrew_taps
+    with_items: "{{ homebrew_taps }}"
+    become: false
 
   - name: Install some brews
     homebrew:
       name={{ item.name|default(item) }} 
       state={{ item.state|default('present') }}
       install_options={{ item.install_options|default() }}
-    with_items: homebrew_packages
+    with_items: "{{ homebrew_packages }}"
 
   - include: fish.yml tags=shell,packages
   - include: aws.yml tags=aws,packages

@@ -5,12 +5,4 @@
       name="{{ item }}"
       state=present
     with_items:
-      - aws-as
-      - aws-cfn-tools
-      - aws-cloudsearch
-      - aws-cloudsearch
-      - aws-elasticache
-      - aws-elasticbeanstalk
-      - aws-mon
-      - aws-sns-cli
       - awscli

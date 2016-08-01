@@ -1,10 +1,11 @@
 ---
 
 - name: Provision an OS X system
-  hosts: all
-  sudo: yes
-  sudo_user: "{{ user }}"
-  remote_user: "{{ user }}"
+  hosts: localhost
+  become: no
+  become_method: sudo
+#  become_user: "{{ user }}"
+  connection: local
   vars:
     - connection: local
   vars_files:
@@ -13,6 +14,7 @@
   roles:
     - system
     - packages
+#    - dns
     - applications
     - settings
     - dotfiles
