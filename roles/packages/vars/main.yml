@@ -27,7 +27,7 @@ homebrew_packages:
   - fzf
   - git
   - git-lfs
-  - gnupg
+  - homebrew/versions/gnupg21
   - gnu-tar
   - gpg
   - go
