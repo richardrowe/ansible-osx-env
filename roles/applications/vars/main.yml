@@ -37,7 +37,7 @@ karabiner:
     -
       name: 'remap.shiftparens'
 
-caskroom_dir: /opt/homebrew-cask/Caskroom
+caskroom_dir: /usr/local/Caskroom
 
 homebrew_cask_packages:
   - 1password
@@ -47,6 +47,7 @@ homebrew_cask_packages:
   - caffeine
   - cloak
   - dash
+  - docker
   - dropbox
   - firefox
   - flux
