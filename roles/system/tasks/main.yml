@@ -1,5 +1,8 @@
 ---
 
+- name: Download keyserver certs
+  get_url: url=https://sks-keyservers.net/sks-keyservers.netCA.pem dest=/etc/sks-keyservers.netCA.pem
+
 # Hides desktop items
 - name: hide desktop items
   osx_defaults:
