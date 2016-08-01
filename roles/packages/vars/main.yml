@@ -61,3 +61,8 @@ homebrew_packages:
   - xz
   - weechat
   - wireshark
+
+npm_packages:
+  - gulp
+  - bower
+  - spoof

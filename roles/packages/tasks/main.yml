@@ -22,3 +22,4 @@
   - include: fish.yml tags=shell,packages
   - include: aws.yml tags=aws,packages
   - include: ruby.yml tags=ruby,packages
+  - include: npm.yml tags=npm,packages
