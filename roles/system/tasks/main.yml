@@ -1,7 +1,8 @@
 ---
 
 - name: Download keyserver certs
-  get_url: url=https://sks-keyservers.net/sks-keyservers.netCA.pem dest=/etc/sks-keyservers.netCA.pem
+  shell: 'curl -o /etc/sks-keyservers.netCA.pem https://sks-keyservers.net/sks-keyservers.netCA.pem'
+  become: true
 
 # Hides desktop items
 - name: hide desktop items
