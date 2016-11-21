@@ -14,10 +14,10 @@
     homebrew_cask:
       name={{ item }}
       state={{ item.state|default('present') }}
-    with_items: homebrew_cask_packages
+    with_items: "{{ homebrew_cask_packages }}"
     environment:
-      HOMEBREW_CASK_OPTS: --appdir=/Applications
+      HOMEBREW_CASK_OPTS: --appdir=~/Applications
 
-  - include: seil.yml tags=keyboard
-  - include: karabiner.yml tags=keyboard
-  - include: vagrant.yml tags=vagrant
+  # Does not support macOS Sierra- include: seil.yml tags=keyboard
+  # Does not support macOS Sierra- include: karabiner.yml tags=keyboard
+  #- include: vagrant.yml tags=vagrant
