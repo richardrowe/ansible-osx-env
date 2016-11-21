@@ -41,19 +41,16 @@ caskroom_dir: /usr/local/Caskroom
 
 homebrew_cask_packages:
   - 1password
-  - alfred
   - amethyst
   - appcleaner
-  - caffeine
   - cloak
-  - dash
   - docker
   - dropbox
   - firefox
   - flux
-  - forklift
   - google-chrome
   - gpgtools
+  - hammerspoon
   - handbrake
   - iterm2
   - java
@@ -64,7 +61,6 @@ homebrew_cask_packages:
   - mactex
   - owasp-zap
   - phpstorm
-  - seil
   - shortcat
   - slack
   - torbrowser
