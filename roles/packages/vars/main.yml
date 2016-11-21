@@ -2,7 +2,7 @@
 
 osx_login_shell: /usr/local/bin/fish
 
-rbenv_version: '2.2.3'
+rbenv_version: '2.3.2'
 
 ruby_gems:
   - puppet-lint
@@ -23,6 +23,8 @@ homebrew_packages:
   - curl
   - ctags
   - dnstracer
+  - docker
+  - docker-compose
   - editorconfig
   - fzf
   - git

@@ -1,6 +1,6 @@
 ---
 
-- name: Install required node packages
+- name: "Install required node packages"
   npm:
     name: "{{ item.name }}"
     global: yes

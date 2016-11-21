@@ -23,4 +23,4 @@
     name: "{{ item }}"
     state: latest
     user_install: false
-  with_items: ruby_gems
+  with_items: "{{ ruby_gems }}"
