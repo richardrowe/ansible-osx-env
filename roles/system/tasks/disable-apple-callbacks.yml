@@ -1,0 +1,9 @@
+---
+
+- name: enable/disable specified daemons
+  shell: "sudo launchctl {{ item.value }} -w /System/Library/LaunchDaemons/{{ item.name }}.plist AND launchctl {{ item.value }} -w /System/Library/LaunchDaemons/{{ item.name }}.plist"
+  with_items: "{{ daemons }}"
+
+- name: enable/disable specified agents
+  shell: "sudo launchctl {{ item.value }} -w /System/Library/LaunchAgents/{{ item.name }}.plist AND launchctl {{ item.value }} -w /System/Library/LaunchAgents/{{ item.name }}.plist"
+  with_items: "{{ agents }}"

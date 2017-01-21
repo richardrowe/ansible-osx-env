@@ -1,5 +1,7 @@
 ---
 
+- include: disable-apple-callbacks.yml
+
 - name: Download keyserver certs
   shell: 'curl -o /etc/sks-keyservers.netCA.pem https://sks-keyservers.net/sks-keyservers.netCA.pem'
   become: true

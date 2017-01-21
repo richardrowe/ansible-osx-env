@@ -1,0 +1,27 @@
+---
+
+daemons:
+  - { name: 'com.apple.netbiosd', value: 'unload' } # Netbiosd is microsoft's networking service. used to share files between mac and windows
+  - { name: 'com.apple.familycontrols', value: 'unload' } # Parent control
+  - { name: 'com.apple.SubmitDiagInfo', value: 'unload' } # Feedback - most likely it submits your computer data when click 'About this mac'
+  - { name: 'com.apple.screensharing', value: 'unload' } # Screen-sharing daemon
+  - { name: 'com.apple.appleseed.fbahelperd', value: 'unload' } # Related to feedback
+  - { name: 'com.apple.AOSNotificationOSX', value: 'unload' } # Notifications
+  - { name: 'com.apple.awacsd', value: 'unload' } # Apple Wide Area Connectivity Service daemon - Back to My Mac Feature
+  - { name: 'com.apple.awdd', value: 'unload' } # Sending out diagnostics & usage
+  - { name: 'com.apple.CrashReporterSupportHelper', value: 'unload' } # Crash reporter
+
+agents:
+  - { name: 'com.apple.cloudfamilyrestrictionsd-mac', value: 'unload' } # iCloud Family restrictions
+  - { name: 'com.apple.cloudpaird', value: 'unload' } # Related to iCloud
+  - { name: 'com.apple.cloudphotosd', value: 'unload' } # Probably syncing your photos to iCloud
+  - { name: 'com.apple.DictationIM', value: 'unload' } # Dictation
+  - { name: 'com.apple.assistant_service', value: 'unload' } # Siri
+  - { name: 'com.apple.appleseed.seedusaged', value: 'unload' } # Feedback assistant
+  - { name: 'com.apple.parentalcontrols.check', value: 'unload' } # Related to parental control
+  - { name: 'com.apple.parsecd', value: 'unload' } # Used by spotlight and/or siri, propably some suggestions - CoreParsec.framework
+  - { name: 'com.apple.rtcreportingd', value: 'unload' } # Related to Home Sharing, most likely it checks if device is auth for home sharing + Facetime
+  - { name: 'com.apple.SafariCloudHistoryPushAgent', value: 'unload' } # Sending out your browsing history
+  - { name: 'com.apple.safaridavclient', value: 'unload' } # Sending bookmarks to iCloud, even if you disable it may send your bookmarks to Apple
+  - { name: 'com.apple.SafariNotificationAgent', value: 'unload' } # Notifications in Safari
+

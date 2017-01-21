@@ -1,48 +1,12 @@
 ---
 # vars file for applications
 
-seil:
-  command: '/Applications/Seil.app/Contents/Library/bin/seil'
-  config:
-    - { name: keycode_capslock, value: 59 }
-
-karabiner:
-  source_private_xml: '{{ ansible_env.PWD }}/roles/applications/files/private.xml'
-  config_dir: "~/Library/Application\ Support/Karabiner"
-  command: '/Applications/Karabiner.app/Contents/Library/bin/karabiner'
-  config:
-    -
-      name: repeat.wait
-      value: 43
-    -
-      name: parameter.holdingkeytokey_wait
-      value: 150
-    -
-      name: parameter.keyoverlaidmodifier_timeout
-      value: 300
-
-  remap: # See also 'karabiner'
-    -
-      name: 'private.tmux_simultaneous'
-    -
-      name: 'notsave.tab_numpad_numbers'
-    -
-      name: 'private.tab_numpad'
-    -
-      name: 'remap.escape2backquote'
-    -
-      name: 'remap.controlL2controlL_escape'
-    -
-      name: 'private.vim_on_f'
-    -
-      name: 'remap.shiftparens'
-
 caskroom_dir: /usr/local/Caskroom
 
 homebrew_cask_packages:
   - 1password
-  - amethyst
   - appcleaner
+  - atom
   - cloak
   - docker
   - dropbox
@@ -57,6 +21,7 @@ homebrew_cask_packages:
   - keepingyouawake
   - knockknock
   - little-snitch
+  - micro-snitch
   - macdown
   - mactex
   - owasp-zap
