@@ -18,7 +18,6 @@
     environment:
       HOMEBREW_CASK_OPTS: --appdir=~/Applications
 
-  # Seil, Karabiner do not currently support macOS Sierra
-  #- include: seil.yml tags=keyboard
+  # Karabiner do not currently support macOS Sierra
   #- include: karabiner.yml tags=keyboard
   #- include: vagrant.yml tags=vagrant
