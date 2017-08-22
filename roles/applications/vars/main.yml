@@ -24,6 +24,7 @@ homebrew_cask_packages:
   - mactex
   - owasp-zap
   - phpstorm
+  - sequel-pro
   - shortcat
   - slack
   - torbrowser
